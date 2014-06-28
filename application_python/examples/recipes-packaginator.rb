@@ -1,7 +1,7 @@
 application "packaginator" do
-  path "/srv/packaginator"
-  owner "nobody"
-  group "nogroup"
+  path "/project/packaginator"
+  owner "ubuntu"
+  group "app"
   repository "https://github.com/coderanger/packaginator.git"
   revision "master"
   migrate true
@@ -14,12 +14,14 @@ application "packaginator" do
     debug true
     collectstatic "build_static --noinput"
     database do
-      database "packaginator"
+      database "melonpie"
       engine "postgresql_psycopg2"
-      username "packaginator"
-      password "awesome_password"
+      username "melonpie"
+      password "Melonpie2014"
+      host "melonpie.cgdkzz4oruxy.ap-southeast-1.rds.amazonaws.com"
+      port "5432"
     end
-    database_master_role "packaginator_database_master"
+    database_master_role "rds_superuser"
   end
 
   gunicorn do
