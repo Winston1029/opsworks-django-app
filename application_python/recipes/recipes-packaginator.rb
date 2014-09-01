@@ -11,10 +11,11 @@ application "packaginator" do
     packages ["redis"]
     requirements "requirements/mkii.txt"
     settings_template "settings.py.erb"
-    debug true
-    collectstatic "build_static --noinput"
+    debug false
+    # collectstatic "build_static --noinput"
+    collectstatic "collectstatic --noinput"
     database do
-      database "melonpie"
+      database "packaginator"
       engine "postgresql_psycopg2"
       username "melonpie"
       password "Melonpie2014"
